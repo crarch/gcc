@@ -5783,7 +5783,7 @@ case ${target} in
 		lp64d)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64D" ;;
 		lp64f)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64F" ;;
 		lp64s)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64S" ;;
-		ilp32)     tm_defines+=" DEFAULT_ABI_BASE=N_ABI_BASE_TYPES" ;;
+		ilp32)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_ILP32" ;;
 		esac
 
 		case ${with_abiext} in

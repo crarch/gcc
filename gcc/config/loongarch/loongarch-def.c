@@ -58,6 +58,12 @@ loongarch_cpu_cache[N_TUNE_TYPES] = {
       .l1d_size = 64,
       .l2d_size = 256,
   },
+  // Chiro: we need modify cpy cache info here!!
+  [CPU_LOONGARCH32] = {
+      .l1d_line_size = 64,
+      .l1d_size = 64,
+      .l2d_size = 256,
+  },
 };
 
 /* The following properties cannot be looked up directly using "cpucfg".
@@ -74,6 +80,9 @@ loongarch_cpu_rtx_cost_data[N_TUNE_TYPES] = {
       DEFAULT_COSTS
   },
   [CPU_LA464] = {
+      DEFAULT_COSTS
+  },
+  [CPU_LOONGARCH32] = {
       DEFAULT_COSTS
   },
 };
@@ -99,6 +108,8 @@ loongarch_cpu_issue_rate[N_TUNE_TYPES] = {
   [CPU_NATIVE]	      = 4,
   [CPU_LOONGARCH64]   = 4,
   [CPU_LA464]	      = 4,
+  // Chiro: ...well
+  [CPU_LOONGARCH32]   = 4,
 };
 
 int
@@ -106,6 +117,8 @@ loongarch_cpu_multipass_dfa_lookahead[N_TUNE_TYPES] = {
   [CPU_NATIVE]	      = 4,
   [CPU_LOONGARCH64]   = 4,
   [CPU_LA464]	      = 4,
+  // Chiro: what's this?
+  [CPU_LOONGARCH32]   = 4,
 };
 
 /* Wiring string definitions from loongarch-str.h to global arrays
