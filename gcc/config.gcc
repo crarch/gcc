@@ -5257,7 +5257,7 @@ case "${target}" in
 			lp64d) loongarch_multilib_list_c+="ABI_BASE_LP64D,";;
 			lp64f) loongarch_multilib_list_c+="ABI_BASE_LP64F,";;
 			lp64s) loongarch_multilib_list_c+="ABI_BASE_LP64S,";;
-			ilp32) loongarch_multilib_list_c+="";;
+			ilp32) loongarch_multilib_list_c+="N_ABI_BASE_TYPES,";;
 			*)
 				echo "Unknown base ABI \"${e[0]}\" in --with-multilib-list." 1>&2
 				exit 1
@@ -5769,18 +5769,21 @@ case ${target} in
 		native)		tm_defines+=" DEFAULT_CPU_ARCH=CPU_NATIVE" ;;
 		la464)		tm_defines+=" DEFAULT_CPU_ARCH=CPU_LA464" ;;
 		loongarch64)	tm_defines+=" DEFAULT_CPU_ARCH=CPU_LOONGARCH64" ;;
+		loongarch32)	tm_defines+=" DEFAULT_CPU_ARCH=CPU_LOONGARCH32" ;;
 		esac
 
 		case ${with_tune} in
 		native)		tm_defines+=" DEFAULT_CPU_TUNE=CPU_NATIVE" ;;
 		la464)		tm_defines+=" DEFAULT_CPU_TUNE=CPU_LA464" ;;
 		loongarch64)	tm_defines+=" DEFAULT_CPU_TUNE=CPU_LOONGARCH64" ;;
+		loongarch32)	tm_defines+=" DEFAULT_CPU_TUNE=CPU_LOONGARCH32" ;;
 		esac
 
 		case ${with_abi} in
 		lp64d)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64D" ;;
 		lp64f)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64F" ;;
 		lp64s)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64S" ;;
+		ilp32)     tm_defines+=" DEFAULT_ABI_BASE=N_ABI_BASE_TYPES" ;;
 		esac
 
 		case ${with_abiext} in

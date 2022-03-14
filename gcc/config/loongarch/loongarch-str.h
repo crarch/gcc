@@ -27,8 +27,10 @@ along with GCC; see the file COPYING3.  If not see
 #define STR_CPU_NATIVE "native"
 #define STR_CPU_LOONGARCH64 "loongarch64"
 #define STR_CPU_LA464 "la464"
+#define STR_CPU_LOONGARCH32 "loongarch32"
 
 #define STR_ISA_BASE_LA64V100 "la64"
+#define STR_ISA_BASE_LA32V100 "la32"
 
 #define OPTSTR_ISA_EXT_FPU "fpu"
 #define STR_ISA_EXT_NOFPU "none"
@@ -44,6 +46,7 @@ along with GCC; see the file COPYING3.  If not see
 #define STR_ABI_BASE_LP64D "lp64d"
 #define STR_ABI_BASE_LP64F "lp64f"
 #define STR_ABI_BASE_LP64S "lp64s"
+#define STR_ABI_BASE_ILP32 "ilp32"
 
 #define STR_ABI_EXT_BASE "base"
 

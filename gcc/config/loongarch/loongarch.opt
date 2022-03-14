@@ -45,6 +45,9 @@ Basic ISAs of LoongArch:
 EnumValue
 Enum(isa_base) String(la64) Value(ISA_BASE_LA64V100)
 
+EnumValue
+Enum(isa_base) String(la32) Value(ISA_BASE_LA32V100)
+
 
 ;; ISA extensions / adjustments
 Enum
@@ -94,6 +97,9 @@ Enum(cpu_type) String(loongarch64) Value(CPU_LOONGARCH64)
 EnumValue
 Enum(cpu_type) String(la464) Value(CPU_LA464)
 
+EnumValue
+Enum(cpu_type) String(loongarch32) Value(CPU_LOONGARCH32)
+
 march=
 Target RejectNegative Joined Enum(cpu_type) Var(la_opt_cpu_arch) Init(M_OPTION_NOT_SEEN)
 -march=PROCESSOR	Generate code for the given PROCESSOR ISA.
@@ -119,6 +125,9 @@ Enum(abi_base) String(lp64f) Value(ABI_BASE_LP64F)
 
 EnumValue
 Enum(abi_base) String(lp64s) Value(ABI_BASE_LP64S)
+
+EnumValue
+Enum(abi_base) String(ilp32) Value(ABI_BASE_ILP32)
 
 mabi=
 Target RejectNegative Joined ToLower Enum(abi_base) Var(la_opt_abi_base) Init(M_OPTION_NOT_SEEN)
