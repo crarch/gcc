@@ -4985,6 +4985,11 @@ case "${target}" in
 			abi_default="lp64d"
 			triplet_abi=""
 			;;
+		loongarch32-*-*-*)
+			abi_pattern="ilp32"
+			abi_default="ilp32"
+			triplet_abi=""
+			;;
 		*)
 			echo "Unsupported target ${target}." 1>&2
 			exit 1
@@ -5050,6 +5055,7 @@ case "${target}" in
 			;;
 		esac
 
+		# echo "The ABI extension type is \"${with_abiext}\""
 
 		# Inferring ISA-related default options from the ABI: pass 1
 		case ${with_abi}/${with_abiext} in
@@ -5058,6 +5064,13 @@ case "${target}" in
 			arch_pattern="native|loongarch64|la464"
 			# default architecture for lp64* ABI
 			arch_default="loongarch64"
+			;;
+		ilp32*/base)
+			# Chiro: What's for la464?
+			# architectures that support lp32* ABI
+			arch_pattern="native|loongarch32"
+			# default architecture for lp32* ABI
+			arch_default="loongarch32"
 			;;
 		*)
 			echo "Unsupported ABI type ${with_abi}/${with_abiext}." 1>&2
@@ -5076,6 +5089,10 @@ case "${target}" in
 			;;
 		lp64s/base)
 			fpu_pattern="none|32|64"
+			fpu_default="none"
+			;;
+		ilp32/base)
+			fpu_pattern="none"
 			fpu_default="none"
 			;;
 		*)
@@ -5171,7 +5188,7 @@ case "${target}" in
 
 		# Perform final sanity checks.
 		case ${with_arch} in
-		loongarch64 | la464) ;; # OK, append here.
+		loongarch64 | la464 | loongarch32) ;; # OK, append here.
 		native)
 			if test x${host} != x${target}; then
 				echo "--with-arch=native is illegal for cross-compiler." 1>&2
@@ -5190,7 +5207,7 @@ case "${target}" in
 		esac
 
 		case ${with_abi} in
-		lp64d | lp64f | lp64s) ;; # OK, append here.
+		lp64d | lp64f | lp64s | ilp32) ;; # OK, append here.
 		*)
 			echo "Unsupported ABI given in --with-abi=$with_abi" 1>&2
 			exit 1
@@ -5240,6 +5257,7 @@ case "${target}" in
 			lp64d) loongarch_multilib_list_c+="ABI_BASE_LP64D,";;
 			lp64f) loongarch_multilib_list_c+="ABI_BASE_LP64F,";;
 			lp64s) loongarch_multilib_list_c+="ABI_BASE_LP64S,";;
+			ilp32) loongarch_multilib_list_c+="";;
 			*)
 				echo "Unknown base ABI \"${e[0]}\" in --with-multilib-list." 1>&2
 				exit 1
