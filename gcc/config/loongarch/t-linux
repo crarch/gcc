@@ -17,8 +17,8 @@
 # <http://www.gnu.org/licenses/>.
 
 # Multilib
-MULTILIB_OPTIONS = mabi=lp64d/mabi=lp64f/mabi=lp64s
-MULTILIB_DIRNAMES = base/lp64d base/lp64f base/lp64s
+MULTILIB_OPTIONS = mabi=lp64d/mabi=lp64f/mabi=lp64s/mabi=ilp32
+MULTILIB_DIRNAMES = base/lp64d base/lp64f base/lp64s base/ilp32
 
 # The GCC driver always gets all abi-related options on the command line.
 # (see loongarch-driver.c:driver_get_normalized_m_opts)
@@ -49,5 +49,9 @@ ifeq ($(filter __DISABLE_MULTILIB,$(tm_defines)),)
     MULTILIB_OSDIRNAMES += \
       mabi.lp64s=../lib64/sf$\
       $(call if_multiarch,:loongarch64-linux-gnusf)
+    
+    MULTILIB_OSDIRNAMES += \
+      mabi.ilp32=../lib$\
+      $(call if_multiarch,:loongarch32-linux-gnu)
 
 endif

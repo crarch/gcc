@@ -70,12 +70,24 @@ loongarch_cpu_cpp_builtins (cpp_reader *pfile)
       builtin_define ("__loongarch_grlen=64");
       builtin_define ("__loongarch64");
     }
+  else
+    {
+      builtin_define ("__loongarch_grlen=32");
+      builtin_define ("__loongarch32");
+    }
 
   if (TARGET_ABI_LP64)
     {
       builtin_define ("_ABILP64=3");
       builtin_define ("_LOONGARCH_SIM=_ABILP64");
       builtin_define ("__loongarch_lp64");
+    }
+  else
+    {
+      // Chiro: why = 3 ?
+      builtin_define ("_ABIILP32=3");
+      builtin_define ("_LOONGARCH_SIM=_ABIILP32");
+      builtin_define ("__loongarch_ilp32");
     }
 
   /* These defines reflect the ABI in use, not whether the

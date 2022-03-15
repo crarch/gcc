@@ -60,6 +60,7 @@ LIST = aarch64-elf aarch64-linux-gnu aarch64-rtems \
   lm32-rtems lm32-uclinux \
   loongarch64-linux-gnu loongarch64-linux-gnuf64 \
   loongarch64-linux-gnuf32 loongarch64-linux-gnusf \
+  loongarch32-linux-gnu \
   m32c-rtems m32c-elf m32r-elf m32rle-elf \
   m68k-elf m68k-netbsdelf \
   m68k-uclinux m68k-linux m68k-rtems \

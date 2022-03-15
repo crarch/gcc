@@ -5010,7 +5010,19 @@ case "${target}" in
 			  ;;
 		esac
 
-		la_canonical_triplet="loongarch64-${triplet_os}${triplet_abi}"
+		# la_canonical_triplet="loongarch64-${triplet_os}${triplet_abi}"
+		case ${target} in
+		loongarch64-*-*-*)
+			la_canonical_triplet="loongarch64-${triplet_os}${triplet_abi}"
+			;;
+		loongarch32-*-*-*)
+			la_canonical_triplet="loongarch32-${triplet_os}${triplet_abi}"
+			;;
+		*)
+			echo "Unsupported target ${target}." 1>&2
+			exit 1
+			;;
+		esac
 
 		## Setting default value for with_abi.
 		case ${with_abi} in
@@ -5257,7 +5269,7 @@ case "${target}" in
 			lp64d) loongarch_multilib_list_c+="ABI_BASE_LP64D,";;
 			lp64f) loongarch_multilib_list_c+="ABI_BASE_LP64F,";;
 			lp64s) loongarch_multilib_list_c+="ABI_BASE_LP64S,";;
-			ilp32) loongarch_multilib_list_c+="N_ABI_BASE_TYPES,";;
+			ilp32) loongarch_multilib_list_c+="ABI_BASE_ILP32,";;
 			*)
 				echo "Unknown base ABI \"${e[0]}\" in --with-multilib-list." 1>&2
 				exit 1

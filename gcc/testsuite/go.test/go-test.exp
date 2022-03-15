@@ -235,6 +235,9 @@ proc go-set-goarch { } {
 	"loongarch64-*-*" {
 	    set goarch "loongarch64"
 	}
+	"loongarch32-*-*" {
+	    set goarch "loongarch32"
+	}
 	"s390*-*-*" {
 	    if [check_effective_target_ilp32] {
 		set goarch "s390"

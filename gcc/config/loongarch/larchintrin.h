@@ -136,7 +136,8 @@ __asrtgt_d (long int _1, long int _2)
 #define __dlddir(/*long int*/ _1, /*ui5*/ _2) \
   ((long int) __builtin_loongarch_dlddir ((long int) (_1), (_2)))
 #else
-#error "Don't support this ABI."
+// #error "Don't support this ABI."
+#warning "Don't support this ABI."
 #endif
 
 #if defined __loongarch64
@@ -145,7 +146,8 @@ __asrtgt_d (long int _1, long int _2)
 #define __dldpte(/*long int*/ _1, /*ui5*/ _2) \
   ((void) __builtin_loongarch_dldpte ((long int) (_1), (_2)))
 #else
-#error "Don't support this ABI."
+// #error "Don't support this ABI."
+#warning "Don't support this ABI."
 #endif
 
 /* Assembly instruction format:	rd, rj, rk.  */

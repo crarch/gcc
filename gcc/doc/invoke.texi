@@ -24417,6 +24417,8 @@ produces code optimized for the local machine under the constraints
 of the selected instruction set.
 @item loongarch64
 A generic CPU with 64-bit extensions.
+@item loongarch32
+A generic CPU with 32-bit extensions.
 @item la464
 LoongArch LA464 CPU with LBT, LSX, LASX, LVZ.
 @end table
