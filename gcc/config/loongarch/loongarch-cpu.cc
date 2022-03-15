@@ -104,7 +104,10 @@ fill_native_cpu_config (int p_arch_native, int p_tune_native)
       case 0x02:
 	NATIVE_BASE_ISA = ISA_BASE_LA64V100;
 	break;
-
+      case 0x00:
+  NATIVE_BASE_ISA = ISA_BASE_LA32V100;
+  break;
+  
       default:
 	if (p_arch_native)
 	  fatal_error (UNKNOWN_LOCATION,

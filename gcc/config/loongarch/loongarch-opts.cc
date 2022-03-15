@@ -404,6 +404,8 @@ isa_default_abi (const struct loongarch_isa *isa)
       case ISA_EXT_NOFPU:
 	if (isa->base == ISA_BASE_LA64V100)
 	  abi.base = ABI_BASE_LP64S;
+  else if (isa->base == ISA_BASE_LA32V100)
+    abi.base = ABI_BASE_ILP32;
 	break;
 
       default:
@@ -423,7 +425,9 @@ isa_base_compat_p (const struct loongarch_isa *set1,
     {
       case ISA_BASE_LA64V100:
 	return (set1->base == ISA_BASE_LA64V100);
-
+      case ISA_BASE_LA32V100:
+  // Chiro: it may work...
+  return (set1->base == ISA_BASE_LA64V100 || set1->base == ISA_BASE_LA32V100);
       default:
 	gcc_unreachable ();
     }
