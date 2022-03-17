@@ -67,16 +67,27 @@ typedef          _Fract HQtype  __attribute__ ((mode (HQ)));
 typedef unsigned _Fract UHQtype __attribute__ ((mode (UHQ)));
 typedef          _Fract HAtype  __attribute__ ((mode (HA)));
 typedef unsigned _Fract UHAtype __attribute__ ((mode (UHA)));
-#define HAVE_QQ		1
-#define HAVE_UQQ	1
-#define HAVE_HQ		1
-#define HAVE_UHQ	1
-#define HAVE_HA		1
-#define HAVE_UHA	1
-#define HAVE_QI		1
-#define HAVE_UQI	1
-#define HAVE_HI		1
-#define HAVE_UHI	1
+// #define HAVE_QQ		1
+// #define HAVE_UQQ	1
+// #define HAVE_HQ		1
+// #define HAVE_UHQ	1
+// #define HAVE_HA		1
+// #define HAVE_UHA	1
+// #define HAVE_QI		1
+// #define HAVE_UQI	1
+// #define HAVE_HI		1
+// #define HAVE_UHI	1
+#define HAVE_QQ		0
+#define HAVE_UQQ	0
+#define HAVE_HQ		0
+#define HAVE_UHQ	0
+#define HAVE_HA		0
+#define HAVE_UHA	0
+#define HAVE_QI		0
+#define HAVE_UQI	0
+#define HAVE_HI		0
+#define HAVE_UHI	0
+
 #if MIN_UNITS_PER_WORD > 1
 /* These typedefs are usually forbidden on dsp's with UNITS_PER_WORD 1.  */
 typedef          int SItype     __attribute__ ((mode (SI)));

@@ -51,12 +51,12 @@ loongarch_config_target (struct loongarch_target *target,
 
 #define TARGET_HARD_FLOAT	    (la_target.isa.fpu != ISA_EXT_NOFPU)
 #define TARGET_HARD_FLOAT_ABI	    (la_target.abi.base == ABI_BASE_LP64D \
-				     || la_target.abi.base == ABI_BASE_LP64F)
+				     || la_target.abi.base == ABI_BASE_LP64F || la_target.abi.base == ABI_BASE_ILP32F)
 
 #define TARGET_SOFT_FLOAT	  (la_target.isa.fpu == ISA_EXT_NOFPU)
-#define TARGET_SOFT_FLOAT_ABI	  (la_target.abi.base == ABI_BASE_LP64S)
+#define TARGET_SOFT_FLOAT_ABI	  (la_target.abi.base == ABI_BASE_LP64S || la_target.abi.base == ABI_BASE_ILP32S)
 #define TARGET_SINGLE_FLOAT	  (la_target.isa.fpu == ISA_EXT_FPU32)
-#define TARGET_SINGLE_FLOAT_ABI	  (la_target.abi.base == ABI_BASE_LP64F)
+#define TARGET_SINGLE_FLOAT_ABI	  (la_target.abi.base == ABI_BASE_LP64F || la_target.abi.base == ABI_BASE_ILP32F)
 #define TARGET_DOUBLE_FLOAT	  (la_target.isa.fpu == ISA_EXT_FPU64)
 #define TARGET_DOUBLE_FLOAT_ABI	  (la_target.abi.base == ABI_BASE_LP64D)
 

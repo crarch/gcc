@@ -40,6 +40,8 @@ abi_priority_list[] = {
     {ABI_BASE_LP64D, ABI_EXT_BASE},
     {ABI_BASE_LP64F, ABI_EXT_BASE},
     {ABI_BASE_LP64S, ABI_EXT_BASE},
+    {ABI_BASE_ILP32F, ABI_EXT_BASE},
+    {ABI_BASE_ILP32S, ABI_EXT_BASE},
 };
 
 /* Initialize enabled_abi_types from TM_MULTILIB_LIST.  */
@@ -244,7 +246,9 @@ loongarch_config_target (struct loongarch_target *target,
 config_target_isa:
 
   /* Get default ISA from "-march" or its default value.  */
-  t.isa = loongarch_cpu_default_isa[__ACTUAL_ARCH];
+  // t.isa = loongarch_cpu_default_isa[__ACTUAL_ARCH];
+  // Chiro: FATAL: change here to set la32 default
+  t.isa = loongarch_cpu_default_isa[CPU_LOONGARCH32];
 
   /* Apply incremental changes.  */
   /* "-march=native" overrides the default FPU type.  */
@@ -399,6 +403,8 @@ isa_default_abi (const struct loongarch_isa *isa)
       case ISA_EXT_FPU32:
 	if (isa->base == ISA_BASE_LA64V100)
 	  abi.base = ABI_BASE_LP64F;
+  else if (isa->base == ISA_BASE_LA32V100)
+	  abi.base = ABI_BASE_ILP32F;
 	break;
 
       case ISA_EXT_NOFPU:
@@ -478,6 +484,12 @@ abi_default_cpu_arch (struct loongarch_abi abi)
       case ABI_BASE_LP64S:
 	if (abi.ext == ABI_EXT_BASE)
 	  return CPU_LOONGARCH64;
+    break;
+      case ABI_BASE_ILP32S:
+      case ABI_BASE_ILP32F:
+  if (abi.ext == ABI_EXT_BASE)
+	  return CPU_LOONGARCH32;    
+    break;
     }
   gcc_unreachable ();
 }

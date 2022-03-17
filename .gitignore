@@ -68,4 +68,5 @@ stamp-*
 /gmp*
 /isl*
 
-/build
+.vscode
+build/

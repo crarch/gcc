@@ -55,7 +55,6 @@ extern "C" {
 /* enum isa_base */
 extern const char* loongarch_isa_base_strings[];
 #define ISA_BASE_LA64V100     0
-// Is this gcc copy has loongarch 32 isa ??
 #define ISA_BASE_LA32V100     1
 #define N_ISA_BASE_TYPES      2
 
