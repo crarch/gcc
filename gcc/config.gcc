@@ -4985,10 +4985,21 @@ case "${target}" in
 			abi_default="lp64d"
 			triplet_abi=""
 			;;
+		loongarch32-*-*-*f32)
+			abi_pattern="ilp32f"
+			abi_default="ilp32f"
+			triplet_abi="f32"
+			;;
+		loongarch32-*-*-*sf)
+			abi_pattern="ilp32s"
+			abi_default="ilp32s"
+			triplet_abi="sf"
+			;;
 		loongarch32-*-*-*)
-			abi_pattern="ilp32"
-			abi_default="ilp32"
-			triplet_abi=""
+			abi_pattern="ilp32[fs]"
+			# chiro: set default float to softfloat
+			abi_default="ilp32s"
+			triplet_abi="sf"
 			;;
 		*)
 			echo "Unsupported target ${target}." 1>&2
@@ -5078,7 +5089,6 @@ case "${target}" in
 			arch_default="loongarch64"
 			;;
 		ilp32*/base)
-			# Chiro: What's for la464?
 			# architectures that support lp32* ABI
 			arch_pattern="native|loongarch32"
 			# default architecture for lp32* ABI
@@ -5103,9 +5113,13 @@ case "${target}" in
 			fpu_pattern="none|32|64"
 			fpu_default="none"
 			;;
-		ilp32/base)
+		ilp32s/base)
 			fpu_pattern="none"
 			fpu_default="none"
+			;;
+		ilp32f/base)
+			fpu_pattern="32"
+			fpu_default="32"
 			;;
 		*)
 			echo "Unsupported ABI type ${with_abi}/${with_abiext}." 1>&2
@@ -5219,7 +5233,7 @@ case "${target}" in
 		esac
 
 		case ${with_abi} in
-		lp64d | lp64f | lp64s | ilp32) ;; # OK, append here.
+		lp64d | lp64f | lp64s | ilp32s | ilp32f) ;; # OK, append here.
 		*)
 			echo "Unsupported ABI given in --with-abi=$with_abi" 1>&2
 			exit 1
@@ -5269,7 +5283,8 @@ case "${target}" in
 			lp64d) loongarch_multilib_list_c+="ABI_BASE_LP64D,";;
 			lp64f) loongarch_multilib_list_c+="ABI_BASE_LP64F,";;
 			lp64s) loongarch_multilib_list_c+="ABI_BASE_LP64S,";;
-			ilp32) loongarch_multilib_list_c+="ABI_BASE_ILP32,";;
+			ilp32s) loongarch_multilib_list_c+="ABI_BASE_ILP32S,";;
+			ilp32f) loongarch_multilib_list_c+="ABI_BASE_ILP32F,";;
 			*)
 				echo "Unknown base ABI \"${e[0]}\" in --with-multilib-list." 1>&2
 				exit 1
@@ -5795,7 +5810,8 @@ case ${target} in
 		lp64d)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64D" ;;
 		lp64f)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64F" ;;
 		lp64s)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_LP64S" ;;
-		ilp32)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_ILP32" ;;
+		ilp32s)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_ILP32S" ;;
+		ilp32f)     tm_defines+=" DEFAULT_ABI_BASE=ABI_BASE_ILP32F" ;;
 		esac
 
 		case ${with_abiext} in

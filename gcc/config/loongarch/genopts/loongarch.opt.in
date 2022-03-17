@@ -127,7 +127,10 @@ EnumValue
 Enum(abi_base) String(@@STR_ABI_BASE_LP64S@@) Value(ABI_BASE_LP64S)
 
 EnumValue
-Enum(abi_base) String(@@STR_ABI_BASE_ILP32@@) Value(ABI_BASE_ILP32)
+Enum(abi_base) String(@@STR_ABI_BASE_ILP32S@@) Value(ABI_BASE_ILP32S)
+
+EnumValue
+Enum(abi_base) String(@@STR_ABI_BASE_ILP32F@@) Value(ABI_BASE_ILP32F)
 
 m@@OPTSTR_ABI_BASE@@=
 Target RejectNegative Joined ToLower Enum(abi_base) Var(la_opt_abi_base) Init(M_OPTION_NOT_SEEN)

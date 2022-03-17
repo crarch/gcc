@@ -405,7 +405,7 @@ isa_default_abi (const struct loongarch_isa *isa)
 	if (isa->base == ISA_BASE_LA64V100)
 	  abi.base = ABI_BASE_LP64S;
   else if (isa->base == ISA_BASE_LA32V100)
-    abi.base = ABI_BASE_ILP32;
+    abi.base = ABI_BASE_ILP32S;
 	break;
 
       default:

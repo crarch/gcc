@@ -72,8 +72,9 @@ extern const char* loongarch_abi_base_strings[];
 #define ABI_BASE_LP64D	      0
 #define ABI_BASE_LP64F	      1
 #define ABI_BASE_LP64S	      2
-#define ABI_BASE_ILP32	      3
-#define N_ABI_BASE_TYPES      4
+#define ABI_BASE_ILP32S	      3
+#define ABI_BASE_ILP32F	      4
+#define N_ABI_BASE_TYPES      5
 
 /* enum abi_ext */
 extern const char* loongarch_abi_ext_strings[];

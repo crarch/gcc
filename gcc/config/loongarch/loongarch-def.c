@@ -144,7 +144,8 @@ loongarch_abi_base_strings[N_ABI_BASE_TYPES] = {
   [ABI_BASE_LP64D] = STR_ABI_BASE_LP64D,
   [ABI_BASE_LP64F] = STR_ABI_BASE_LP64F,
   [ABI_BASE_LP64S] = STR_ABI_BASE_LP64S,
-  [ABI_BASE_ILP32] = STR_ABI_BASE_ILP32,
+  [ABI_BASE_ILP32S] = STR_ABI_BASE_ILP32S,
+  [ABI_BASE_ILP32F] = STR_ABI_BASE_ILP32F,
 };
 
 const char*
@@ -181,7 +182,10 @@ abi_minimal_isa[N_ABI_BASE_TYPES][N_ABI_EXT_TYPES] = {
   [ABI_BASE_LP64S] = {
       [ABI_EXT_BASE] = {.base = ISA_BASE_LA64V100, .fpu = ISA_EXT_NOFPU},
   },
-  [ABI_BASE_ILP32] = {
+  [ABI_BASE_ILP32S] = {
       [ABI_EXT_BASE] = {.base = ISA_BASE_LA32V100, .fpu = ISA_EXT_NOFPU},
+  },
+  [ABI_BASE_ILP32F] = {
+      [ABI_EXT_BASE] = {.base = ISA_BASE_LA32V100, .fpu = ISA_EXT_FPU32},
   },
 };

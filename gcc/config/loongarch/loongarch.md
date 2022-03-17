@@ -3710,10 +3710,11 @@
 
 ;; Synchronization instructions.
 
-(include "sync.md")
+;; Chiro: disable Synchronization instructions for loongarch 32 reduced. notice that 64bit will neither include these
+;; (include "sync.md")
 
 (include "generic.md")
-(include "la464.md")
+;; (include "la464.md")
 
 (define_c_enum "unspec" [
   UNSPEC_ADDRESS_FIRST

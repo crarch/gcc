@@ -46,7 +46,8 @@ along with GCC; see the file COPYING3.  If not see
 #define STR_ABI_BASE_LP64D "lp64d"
 #define STR_ABI_BASE_LP64F "lp64f"
 #define STR_ABI_BASE_LP64S "lp64s"
-#define STR_ABI_BASE_ILP32 "ilp32"
+#define STR_ABI_BASE_ILP32S "ilp32s"
+#define STR_ABI_BASE_ILP32F "ilp32f"
 
 #define STR_ABI_EXT_BASE "base"
 
