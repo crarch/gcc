@@ -246,9 +246,9 @@ loongarch_config_target (struct loongarch_target *target,
 config_target_isa:
 
   /* Get default ISA from "-march" or its default value.  */
-  // t.isa = loongarch_cpu_default_isa[__ACTUAL_ARCH];
+  t.isa = loongarch_cpu_default_isa[__ACTUAL_ARCH];
   // Chiro: FATAL: change here to set la32 default
-  t.isa = loongarch_cpu_default_isa[CPU_LOONGARCH32];
+  // t.isa = loongarch_cpu_default_isa[CPU_LOONGARCH32];
 
   /* Apply incremental changes.  */
   /* "-march=native" overrides the default FPU type.  */
